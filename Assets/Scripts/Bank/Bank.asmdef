@@ -1,6 +1,6 @@
 {
-    "name": "TestUtils",
-    "rootNamespace": "Utils",
+    "name": "Bank",
+    "rootNamespace": "Bank",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

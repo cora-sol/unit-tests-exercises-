@@ -1,7 +1,7 @@
-using Utils;
+using Bank;
 using NUnit.Framework;
 
-namespace Tests
+namespace BankTests
 {
     public class NumberUtilsTest
     {

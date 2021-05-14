@@ -1,4 +1,4 @@
-namespace Utils
+namespace Bank
 {
     public static class NumberUtils
     {

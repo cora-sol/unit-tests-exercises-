@@ -1,8 +1,8 @@
 using System;
-using Utils;
+using Bank;
 using NUnit.Framework;
 
-namespace Tests
+namespace BankTests
 {
     public class MyBankTest
     {
@@ -17,9 +17,14 @@ namespace Tests
             bank = new MyBank();
         }
 
+        [TearDown]
+        public void TearDown()
+        {
+            bank = null;
+        }
+
         #region HasAccount
 
-        [Test]
         [TestCase(Account1)]
         [TestCase(Account2)]
         public void DoesntHaveAccountBeforeCreation(string account)
@@ -32,7 +37,6 @@ namespace Tests
 
         #region CreateAccount
 
-        [Test]
         [TestCase(Account1)]
         [TestCase(Account2)]
         public void HasAccountAfterCreation(string account)
@@ -53,7 +57,6 @@ namespace Tests
             Assert.IsTrue(hasAccount2);
         }
 
-        [Test]
         [TestCase(null)]
         [TestCase("")]
         [TestCase("001")]
@@ -63,7 +66,6 @@ namespace Tests
             Assert.Throws<ArgumentException>(() => bank.CreateAccount(account));
         }
 
-        [Test]
         [TestCase(Account1)]
         [TestCase(Account2)]
         public void ExceptionCreatingExistentAccount(string account)
@@ -72,7 +74,6 @@ namespace Tests
             Assert.Throws<ArgumentException>(() => bank.CreateAccount(account));
         }
 
-        [Test]
         [TestCase(Account1, -1f)]
         [TestCase(Account1, -420.69f)]
         public void ExceptionCreatingAccountWithNegativeBalance(string account, float initialBalance)
@@ -84,7 +85,6 @@ namespace Tests
 
         #region GetBalance
 
-        [Test]
         [TestCase(Account1)]
         [TestCase(Account2)]
         public void ExceptionGettingBalanceOfNonExistentAccount(string account)
@@ -92,7 +92,6 @@ namespace Tests
             Assert.Throws<ArgumentException>(() => bank.GetBalance(account));
         }
 
-        [Test]
         [TestCase(Account1)]
         [TestCase(Account2)]
         public void HasZeroInitialBalanceAfterParameterlessCreation(string account)
@@ -102,7 +101,6 @@ namespace Tests
             AssertUtils.AreApproximatelyEqual(0, balance);
         }
 
-        [Test]
         [TestCase(Account1, 0f)]
         [TestCase(Account1, 1f)]
         [TestCase(Account1, 420.69f)]
@@ -120,7 +118,6 @@ namespace Tests
 
         #region RemoveAccount
 
-        [Test]
         [TestCase(Account1)]
         [TestCase(Account2)]
         public void ExceptionRemovingNonExistentAccount(string account)
@@ -128,7 +125,6 @@ namespace Tests
             Assert.Throws<ArgumentException>(() => bank.RemoveAccount(account));
         }
 
-        [Test]
         [TestCase(Account1)]
         [TestCase(Account2)]
         public void DoesntHaveAccountAfterRemoval(string account)
@@ -143,7 +139,6 @@ namespace Tests
 
         #region Deposit
 
-        [Test]
         [TestCase(Account1, 0f)]
         [TestCase(Account1, -1f)]
         [TestCase(Account1, -420.69f)]
@@ -153,7 +148,6 @@ namespace Tests
             Assert.Throws<ArgumentException>(() => bank.Deposit(account, depositAmount));
         }
 
-        [Test]
         [TestCase(Account1)]
         [TestCase(Account2)]
         public void ExceptionDoingDepositToNonExistentAccount(string account)
@@ -161,7 +155,6 @@ namespace Tests
             Assert.Throws<ArgumentException>(() => bank.Deposit(account, 1f));
         }
 
-        [Test]
         [TestCase(Account1, 1f)]
         [TestCase(Account1, 420.69f)]
         [TestCase(Account2, 0.1f)]
@@ -174,7 +167,6 @@ namespace Tests
             AssertUtils.AreApproximatelyEqual(depositAmount, balance);
         }
 
-        [Test]
         [TestCase(Account1, 1f, 0.1f)]
         [TestCase(Account1, 420.69f, 8888.88f)]
         public void HasNewBalanceAfterDeposits(string account, float depositAmount1, float depositAmount2)
@@ -190,7 +182,6 @@ namespace Tests
 
         #region Withdraw
 
-        [Test]
         [TestCase(Account1, 0f)]
         [TestCase(Account1, -1f)]
         [TestCase(Account1, -420.69f)]
@@ -200,7 +191,6 @@ namespace Tests
             Assert.Throws<ArgumentException>(() => bank.Withdraw(account, withdrawAmount));
         }
 
-        [Test]
         [TestCase(Account1)]
         [TestCase(Account2)]
         public void ExceptionDoingWithdrawToNonExistentAccount(string account)
@@ -208,7 +198,6 @@ namespace Tests
             Assert.Throws<ArgumentException>(() => bank.Withdraw(account, 1f));
         }
 
-        [Test]
         [TestCase(Account1, 0f, 1f)]
         [TestCase(Account1, 420.69f, 420.691f)]
         public void ExceptionDoingWithdrawWithLesserBalance(string account, float initialBalance, float withdrawAmount)
@@ -217,7 +206,6 @@ namespace Tests
             Assert.Throws<ArgumentException>(() => bank.Withdraw(account, withdrawAmount));
         }
 
-        [Test]
         [TestCase(Account1, 1000f, 1f)]
         [TestCase(Account1, 1000f , 420.69f)]
         [TestCase(Account2, 1f , 1f)]
@@ -230,7 +218,6 @@ namespace Tests
             AssertUtils.AreApproximatelyEqual(initialBalance - withdrawAmount, balance);
         }
 
-        [Test]
         [TestCase(Account1, 1000f, 1f, 0.1f)]
         [TestCase(Account1, 1000f, 420.69f, 420.69f)]
         public void HasNewBalanceAfterWithdraws(string account, float initialBalance, float withdrawAmount1, float withdrawAmount2)
@@ -242,7 +229,6 @@ namespace Tests
             AssertUtils.AreApproximatelyEqual(initialBalance - withdrawAmount1 - withdrawAmount2, balance);
         }
 
-        [Test]
         [TestCase(Account1, 420.69f, 1f)]
         [TestCase(Account1, 420.69f, 420.69f)]
         public void HasNewBalanceAfterDepositAndWithdraw(string account, float depositAmount, float withdrawAmount)
@@ -255,7 +241,6 @@ namespace Tests
             AssertUtils.AreApproximatelyEqual(initialBalance + depositAmount - withdrawAmount, balance);
         }
 
-        [Test]
         [TestCase(Account1, 1f, 420.69f)]
         [TestCase(Account1, 420.69f, 420.69f)]
         public void HasNewBalanceAfterWithdrawAndDeposit(string account, float withdrawAmount, float depositAmount)

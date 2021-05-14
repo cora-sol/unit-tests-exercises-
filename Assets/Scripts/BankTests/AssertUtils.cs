@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using UnityEngine;
 
-namespace Tests
+namespace BankTests
 {
     public static class AssertUtils
     {
