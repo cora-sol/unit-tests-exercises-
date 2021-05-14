@@ -1,7 +1,11 @@
 {
     "name": "WormsTests",
     "rootNamespace": "WormsTests",
-    "references": [],
+    "references": [
+        "GUID:27619889b8ba8c24980f49ee34dbb44a",
+        "GUID:0acc523941302664db1f4e527237feb3",
+        "GUID:670f6f076e76a904689fa1d734362898"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
