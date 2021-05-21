@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace Worms
 {
     public class Wormy : MonoBehaviour
     {
-        public Rigidbody2D bulletPrefab;
-        public Transform currentGun;
+        [SerializeField] private Rigidbody2D bulletPrefab;
+        [SerializeField] private  Transform currentGun;
+        [SerializeField] private Text txtHealth;
 
-        public float wormySpeed = 1;
-        public float maxRelativeVelocity;
-        public float misileForce = 5;
+        [SerializeField] private int maxHealth;
+        [SerializeField] private float wormySpeed = 1;
+        [SerializeField] private float maxRelativeVelocity;
+        [SerializeField] private float misileForce = 5;
 
         public bool IsTurn
         {
@@ -17,12 +20,13 @@ namespace Worms
         }
 
         public int wormId;
-        WormyHealth wormyHealth;
+        private WormyHealth wormyHealth;
         SpriteRenderer ren;
 
         private void Start()
         {
-            wormyHealth = GetComponent<WormyHealth>();
+            wormyHealth = new WormyHealth(maxHealth);
+            txtHealth.text = wormyHealth.Health.ToString();
             ren = GetComponent<SpriteRenderer>();
         }
 
@@ -77,6 +81,7 @@ namespace Worms
             if (collision.relativeVelocity.magnitude > maxRelativeVelocity)
             {
                 wormyHealth.ChangeHealth(-3);
+                txtHealth.text = wormyHealth.Health.ToString();
                 if (IsTurn)
                     WormyManager.singleton.NextWorm();
             }

@@ -1,30 +1,26 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using System;
+using UnityEngine;
 
 namespace Worms
 {
-    public class WormyHealth : MonoBehaviour
+    public class WormyHealth
     {
-        public int health;
-        public int maxHealth;
-        public Text txtHealth;
+        private readonly int maxHealth;
+        private int health;
 
-        // Use this for initialization
-        void Start()
+        public int Health => health;
+
+        public WormyHealth(int maxHealth)
         {
+            if (maxHealth <= 0)
+                throw new ArgumentOutOfRangeException(nameof(maxHealth), maxHealth, null);
+            this.maxHealth = maxHealth;
             health = maxHealth;
-            txtHealth.text = health.ToString();
         }
 
-        public void ChangeHealth(int change)
+        public void ChangeHealth(int healthChange)
         {
-            health += change;
-            if (health > maxHealth)
-            {
-                health = maxHealth;
-            }
-
-            txtHealth.text = health.ToString();
+            health = Mathf.Clamp(health + healthChange, 0, maxHealth);
         }
     }
 }
