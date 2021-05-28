@@ -1,0 +1,16 @@
+{
+    "name": "AuthenticationUI",
+    "rootNamespace": "AuthenticationUI",
+    "references": [
+        "GUID:084e4c415c1efbc4b93f48d82b70ab48"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
