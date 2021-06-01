@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Authentication;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace AuthenticationUI
@@ -8,7 +9,7 @@ namespace AuthenticationUI
         [SerializeField]
         private Button button;
         [SerializeField]
-        private AuthenticatorUI authenticatorUI;
+        private AuthenticatorObject authenticatorObject;
 
         private void Start()
         {
@@ -17,7 +18,7 @@ namespace AuthenticationUI
 
         private void SignUp()
         {
-            authenticatorUI.LogOff();
+            authenticatorObject.LogOff();
         }
     }
 }

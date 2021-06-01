@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -617,7 +617,7 @@ MonoBehaviour:
   lastNameField: {fileID: 2128411228}
   emailField: {fileID: 1572900944}
   passwordField: {fileID: 552146044}
-  authenticatorUI: {fileID: 1155113388}
+  authenticatorObject: {fileID: 1566755751}
 --- !u!1 &177838632
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,7 +768,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &235718101
 GameObject:
@@ -781,6 +781,7 @@ GameObject:
   - component: {fileID: 235718102}
   - component: {fileID: 235718104}
   - component: {fileID: 235718103}
+  - component: {fileID: 235718105}
   m_Layer: 5
   m_Name: Panel Login
   m_TagString: Untagged
@@ -846,6 +847,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 235718101}
   m_CullTransparentMesh: 1
+--- !u!114 &235718105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235718101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4e1a9ee93c4848a1552ff7ab2ce7e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 235718101}
+  panelType: 1
+  authenticatorObject: {fileID: 1566755751}
 --- !u!1 &258701110
 GameObject:
   m_ObjectHideFlags: 0
@@ -1191,7 +1207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 2
   toggle: {fileID: 1195816486}
-  authenticatorUI: {fileID: 1155113388}
+  authenticatorObject: {fileID: 1566755751}
 --- !u!1 &389407780
 GameObject:
   m_ObjectHideFlags: 0
@@ -1304,7 +1320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 4
   toggle: {fileID: 1929703350}
-  authenticatorUI: {fileID: 1155113388}
+  authenticatorObject: {fileID: 1566755751}
 --- !u!1 &425498917
 GameObject:
   m_ObjectHideFlags: 0
@@ -1692,7 +1708,7 @@ MonoBehaviour:
   button: {fileID: 458593305}
   emailField: {fileID: 697568413}
   passwordField: {fileID: 1616519155}
-  authenticatorUI: {fileID: 1155113388}
+  authenticatorObject: {fileID: 1566755751}
 --- !u!1 &518751504
 GameObject:
   m_ObjectHideFlags: 0
@@ -1973,8 +1989,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 552146045}
   m_TextComponent: {fileID: 563535214}
   m_Placeholder: {fileID: 1362445907}
-  m_ContentType: 0
-  m_InputType: 0
+  m_ContentType: 7
+  m_InputType: 2
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
@@ -2999,99 +3015,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 700845442}
   m_CullTransparentMesh: 1
---- !u!1 &760223280
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 760223282}
-  - component: {fileID: 760223281}
-  m_Layer: 0
-  m_Name: Directional Light
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!108 &760223281
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 760223280}
-  m_Enabled: 1
-  serializedVersion: 10
-  m_Type: 1
-  m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
-  m_Range: 10
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.802082
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 2
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-    m_CullingMatrixOverride:
-      e00: 1
-      e01: 0
-      e02: 0
-      e03: 0
-      e10: 0
-      e11: 1
-      e12: 0
-      e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingLayerMask: 1
-  m_Lightmapping: 4
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_UseBoundingSphereOverride: 0
-  m_UseViewFrustumForShadowCasterCull: 1
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
---- !u!4 &760223282
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 760223280}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &761255251
 GameObject:
   m_ObjectHideFlags: 0
@@ -3450,7 +3373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 5
   toggle: {fileID: 177838634}
-  authenticatorUI: {fileID: 1155113388}
+  authenticatorObject: {fileID: 1566755751}
 --- !u!1 &922538113
 GameObject:
   m_ObjectHideFlags: 0
@@ -3928,6 +3851,7 @@ GameObject:
   - component: {fileID: 1062143481}
   - component: {fileID: 1062143483}
   - component: {fileID: 1062143482}
+  - component: {fileID: 1062143484}
   m_Layer: 5
   m_Name: Panel SignUp
   m_TagString: Untagged
@@ -3993,6 +3917,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1062143480}
   m_CullTransparentMesh: 1
+--- !u!114 &1062143484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062143480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4e1a9ee93c4848a1552ff7ab2ce7e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 1062143480}
+  panelType: 0
+  authenticatorObject: {fileID: 1566755751}
 --- !u!1 &1083673294
 GameObject:
   m_ObjectHideFlags: 0
@@ -4342,7 +4281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 1
   toggle: {fileID: 1647013903}
-  authenticatorUI: {fileID: 1155113388}
+  authenticatorObject: {fileID: 1566755751}
 --- !u!1 &1155113383
 GameObject:
   m_ObjectHideFlags: 0
@@ -4355,7 +4294,6 @@ GameObject:
   - component: {fileID: 1155113386}
   - component: {fileID: 1155113385}
   - component: {fileID: 1155113384}
-  - component: {fileID: 1155113388}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -4439,25 +4377,13 @@ RectTransform:
   - {fileID: 235718102}
   - {fileID: 1761288505}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1155113388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1155113383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 965fb738565d454389f6efc9a217b6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1195816484
 GameObject:
   m_ObjectHideFlags: 0
@@ -4868,6 +4794,49 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1566755750
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1566755752}
+  - component: {fileID: 1566755751}
+  m_Layer: 0
+  m_Name: Authenticator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1566755751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566755750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 965fb738565d454389f6efc9a217b6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1566755752
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566755750}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 100, y: 178, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1572900941
@@ -4974,13 +4943,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1572900945}
   m_TextComponent: {fileID: 26024456}
   m_Placeholder: {fileID: 1083673296}
-  m_ContentType: 0
+  m_ContentType: 6
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 7
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 5
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
@@ -5594,7 +5563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 1712217078}
-  authenticatorUI: {fileID: 1155113388}
+  authenticatorObject: {fileID: 1566755751}
 --- !u!1 &1745634359
 GameObject:
   m_ObjectHideFlags: 0
@@ -5685,6 +5654,7 @@ GameObject:
   - component: {fileID: 1761288505}
   - component: {fileID: 1761288507}
   - component: {fileID: 1761288506}
+  - component: {fileID: 1761288508}
   m_Layer: 5
   m_Name: Panel Settings
   m_TagString: Untagged
@@ -5750,6 +5720,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1761288504}
   m_CullTransparentMesh: 1
+--- !u!114 &1761288508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761288504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4e1a9ee93c4848a1552ff7ab2ce7e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 1761288504}
+  panelType: 2
+  authenticatorObject: {fileID: 1566755751}
 --- !u!1 &1802534484
 GameObject:
   m_ObjectHideFlags: 0
@@ -5985,7 +5970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 1804052666}
-  authenticatorUI: {fileID: 1155113388}
+  authenticatorObject: {fileID: 1566755751}
 --- !u!1 &1835455252
 GameObject:
   m_ObjectHideFlags: 0
@@ -6590,7 +6575,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 3
   toggle: {fileID: 653661233}
-  authenticatorUI: {fileID: 1155113388}
+  authenticatorObject: {fileID: 1566755751}
 --- !u!1 &2081748628
 GameObject:
   m_ObjectHideFlags: 0

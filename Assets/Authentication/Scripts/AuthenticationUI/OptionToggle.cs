@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Authentication;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace AuthenticationUI
@@ -10,7 +11,7 @@ namespace AuthenticationUI
         [SerializeField]
         private Toggle toggle;
         [SerializeField]
-        private AuthenticatorUI authenticatorUI;
+        private AuthenticatorObject authenticatorObject;
 
         private void Start()
         {
@@ -19,7 +20,7 @@ namespace AuthenticationUI
 
         private void SetOption(bool isOn)
         {
-            authenticatorUI.SetOption(index, isOn);
+            authenticatorObject.SetOption(index, isOn);
         }
     }
 }

@@ -4,7 +4,7 @@
     {
         public bool LogOff()
         {
-            return false;
+            return true;
         }
     }
 }

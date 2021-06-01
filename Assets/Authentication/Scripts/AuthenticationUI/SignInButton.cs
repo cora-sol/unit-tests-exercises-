@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Authentication;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace AuthenticationUI
@@ -12,7 +13,7 @@ namespace AuthenticationUI
         [SerializeField]
         private InputField passwordField;
         [SerializeField]
-        private AuthenticatorUI authenticatorUI;
+        private AuthenticatorObject authenticatorObject;
 
         private void Start()
         {
@@ -23,7 +24,7 @@ namespace AuthenticationUI
         {
             string email = emailField.text;
             string password = passwordField.text;
-            authenticatorUI.SignIn(email, password);
+            authenticatorObject.SignIn(email, password);
         }
     }
 }

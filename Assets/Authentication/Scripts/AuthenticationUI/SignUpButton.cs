@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Authentication;
+using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace AuthenticationUI
@@ -15,8 +17,9 @@ namespace AuthenticationUI
         private InputField emailField;
         [SerializeField]
         private InputField passwordField;
+        [FormerlySerializedAs("authenticatorUI")]
         [SerializeField]
-        private AuthenticatorUI authenticatorUI;
+        private AuthenticatorObject authenticatorObject;
 
         private void Start()
         {
@@ -29,7 +32,7 @@ namespace AuthenticationUI
             string lastName = lastNameField.text;
             string email = emailField.text;
             string password = passwordField.text;
-            authenticatorUI.SignUp(firstName, lastName, email, password);
+            authenticatorObject.SignUp(firstName, lastName, email, password);
         }
     }
 }

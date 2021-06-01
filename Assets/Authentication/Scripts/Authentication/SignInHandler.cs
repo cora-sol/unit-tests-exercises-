@@ -2,9 +2,19 @@
 {
     public class SignInHandler
     {
-        public bool SignIn(string email, string password)
+        private readonly LoginParametersValidator loginParametersValidator = new LoginParametersValidator();
+
+        public bool SignIn(IDataBase dataBase, string email, string password)
         {
-            return false;
+            bool success = loginParametersValidator.AreValidEmailAndPassword(email, password);
+            if (!success)
+                return false;
+            bool isInDataBase = dataBase.TryGet(email, out UserData dataBaseUserData);
+            if (!isInDataBase)
+                return false;
+            if (dataBaseUserData.Password != password)
+                return false;
+            return true;
         }
     }
 }
